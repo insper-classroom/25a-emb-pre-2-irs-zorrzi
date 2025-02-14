@@ -1,0 +1,20 @@
+name: exe1
+author: Rafael Corsi
+version: 1
+
+steps:
+  - delay: 150ms
+  - set-control:
+      part-id: btnr
+      control: pressed
+      value: 1
+  - wait-serial: "fall"
+  - delay: 300ms
+
+
+  - set-control:
+      part-id: btnr
+      control: pressed
+      value: 0
+  - wait-serial: "rise"
+  - delay: 300ms
