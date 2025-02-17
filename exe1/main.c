@@ -28,9 +28,11 @@ int main() {
 
   if (fall_flag == 1) {
     printf("fall \n");
+    fall_flag = 0;
   }
   else if (rise_flag == 1){
     printf("rise \n");
+    rise_flag = 0;
   }
 
   while (true) {
