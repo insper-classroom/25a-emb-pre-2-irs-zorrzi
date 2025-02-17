@@ -7,8 +7,10 @@ const int LED_PIN = 4;
 
 volatile int btn_flag = 0;
 
-void btn_callback(uint gpio, uint32_t events){
-  btn_flag = 1;
+void btn_callback(uint gpio, uint32_t events) {
+  if (events & GPIO_IRQ_EDGE_FALL) {
+      btn_flag = 1;
+  }
 }
 
 int main() {
