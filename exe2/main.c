@@ -8,7 +8,7 @@ const int LED_PIN = 4;
 volatile int btn_flag = 0;
 
 void btn_callback(uint gpio, uint32_t events) {
-  if (events & GPIO_IRQ_EDGE_FALL) {
+  if (events == 0x4) {
       btn_flag = 1;
   }
 }
@@ -16,6 +16,7 @@ void btn_callback(uint gpio, uint32_t events) {
 int main() {
   stdio_init_all();
 
+  // BUTTON
   gpio_init(BTN_PIN);
   gpio_set_dir(BTN_PIN, GPIO_IN);
   gpio_pull_up(BTN_PIN);

@@ -7,10 +7,10 @@ volatile int fall_flag = 0;
 volatile int rise_flag = 0;
 
 void btn_callback(uint gpio, uint32_t events) {
-    if (events & GPIO_IRQ_EDGE_FALL) {
+    if (events == 0x4) {
         fall_flag = 1;
     }
-    if (events & GPIO_IRQ_EDGE_RISE) {
+    if (events == 0x8) {
         rise_flag = 1;
     }
 }
